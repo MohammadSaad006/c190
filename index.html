@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    <!-- Import A-Frame and then AR.js -->
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+  <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script>
+
+  <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+
+  <script src="./js/drive.js"></script>
+    </head>
+
+    <body>
+        <a-scene id="main" backgroundColor="lightblue" inspector-plugin-recast>
+            <a-assets>
+            <a-asset-item id ="city" src="./assets/city asset/scene.gltf"></a-asset-item>
+            <a-asset-item id ="city2" src="./assets/city 2/scene.gltf"></a-asset-item>
+
+            <audio id="carAudio" src="./assets/Sports Car Start Rev Throaty Exhaust - QuickSounds.com.mp3"></audio>
+            <a-asset-item id="stering" src="./assets/stering wheel/scene.gltf"></a-asset-item>
+            <a-asset-item id="break" src="./assets/break/untitled.glb"></a-asset-item>
+            <a-asset-item id="acc" src="./assets/accilater/accelarater.glb"></a-asset-item>
+            </a-assets>
+
+                  <!--Camera and Cursor-->
+                  <a-entity id="cityterrain" gltf-model="#city2" position="0 0 0" rotation="0 0 0 " scale="10 10 10"></a-entity>
+                  <a-entity id="cameraIRG" position="0 1 5 " rotation="0 100 0" movement-controls="speed:0.5" drive>
+                    <a-entity
+                      id="camera"
+                      camera 
+                      position="3 30 0"
+                      rotatiion="0 0 0"
+                      wasd-controls
+                      look-controls="pointerLockEnabled: false"  > 
+                    <a-entity id="wheel" gltf-model="#stering" position="0.8 -0.5 -1" rotation="0 0 0" scale="0.005 0.005 0.005"></a-entity>
+                    
+            <a-box id="br" src="./assets/break/th.jpg" position="-0.4 -1.2 -2" rotation="40 0 0 "  scale="0.15 0.15 0.15" color="gray"></a-box> 
+            <a-box id="ac" src="./assets/accilater/unnamed.png" position="-0.1 -1.2 -2 "  rotation="40 0 0" scale="0.2 0.2 0.2" color="gray"></a-box> 
+            
+                </a-entity>
+
+            </a-entity>
+            <!-- <a-entity id="carAudio1" sound="src:#carAudio; autoplay:false; poolSize:2; volume:60; loop:false"></a-entity> -->
+
+            <a-entity light="type: ambient; color: white; intensity:0.5"></a-entity>   
+            <a-entity light="type: directional; color: #EEE; intensity: 1" position="-1 1 0"></a-entity>
+
+           
+
+            
+
+        </a-scene>
+        
+
+    </body>
+
+    </html>
